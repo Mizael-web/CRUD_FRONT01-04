@@ -1,0 +1,16 @@
+/* src/pages/eventos/Eventos.css */
+.eventos {
+  padding: 20px;
+}
+
+.eventos h2 {
+  text-align: center;
+  color: #4CAF50;
+}
+
+.eventos {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0;
+  text-align: center; 
+}

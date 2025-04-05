@@ -1,27 +1,14 @@
-// src/pages/editarEvento/EditarEvento.jsx
+// src/pages/EditarEvento/EditarEvento.jsx
 import React, { useState, useEffect } from "react";
-import style from "./EditarEvento.module.css"; // Importação do CSS específico de Editar Evento
+import { useParams, useNavigate } from "react-router-dom";
+import style from "./EditarEvento.module.css";
 
-function EditarEvento() {
-  const [evento, setEvento] = useState({
-    nome: "",
-    descricao: "",
-    data: "",
-    local: "",
-    horario: ""
-  });
+function EditarEvento({ eventos, atualizarEvento }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const eventoOriginal = eventos.find((e) => e.id === parseInt(id));
 
-  useEffect(() => {
-    // Aqui você pode carregar os dados do evento a partir de uma API ou banco de dados
-    // Exemplo fictício para carregar o evento por ID
-    // setEvento({
-    //   nome: "Evento Exemplo",
-    //   descricao: "Descrição do Evento",
-    //   data: "2025-04-10",
-    //   local: "Local do Evento",
-    //   horario: "14:00"
-    // });
-  }, []);
+  const [evento, setEvento] = useState(eventoOriginal || {});
 
   const handleChange = (e) => {
     setEvento({ ...evento, [e.target.name]: e.target.value });
@@ -29,50 +16,58 @@ function EditarEvento() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode implementar a lógica para atualizar o evento
-    console.log("Evento atualizado:", evento);
+    atualizarEvento(parseInt(id), evento);
+    navigate("/eventos");
   };
 
+  if (!eventoOriginal) return <p>Evento não encontrado</p>;
+
   return (
-    <div className={style.editarEvento}>
-      <h2>Editar Evento</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nome"
-          value={evento.nome}
-          onChange={handleChange}
-          className={style.inputField} // Usando CSS Modules para classe
-        />
-        <textarea
-          name="descricao"
-          value={evento.descricao}
-          onChange={handleChange}
-          className={style.inputField} // Usando CSS Modules para classe
-        />
-        <input
-          type="date"
-          name="data"
-          value={evento.data}
-          onChange={handleChange}
-          className={style.inputField} // Usando CSS Modules para classe
-        />
-        <input
-          type="text"
-          name="local"
-          value={evento.local}
-          onChange={handleChange}
-          className={style.inputField} // Usando CSS Modules para classe
-        />
-        <input
-          type="time"
-          name="horario"
-          value={evento.horario}
-          onChange={handleChange}
-          className={style.inputField} // Usando CSS Modules para classe
-        />
-        <button type="submit" className={style.submitButton}>Atualizar</button>
-      </form>
+    <div className={style["editar-evento"]}>
+      <div className={style.container}>
+        <h2 className={style.title}>Editar Evento</h2>
+        <form onSubmit={handleSubmit} className={style.form}>
+          <input
+            type="text"
+            name="nome"
+            value={evento.nome}
+            onChange={handleChange}
+            className={style.input}
+          />
+          <textarea
+            name="descricao"
+            value={evento.descricao}
+            onChange={handleChange}
+            className={style.textarea}
+          />
+          <input
+            type="date"
+            name="data"
+            value={evento.data}
+            onChange={handleChange}
+            className={style.input}
+          />
+          <input
+            type="text"
+            name="local"
+            value={evento.local}
+            onChange={handleChange}
+            className={style.input}
+          />
+          <input
+            type="time"
+            name="horario"
+            value={evento.horario}
+            onChange={handleChange}
+            className={style.input}
+          />
+          <div className={style.btnWrapper}>
+            <button type="submit" className={style.button}>
+              Salvar Alterações
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

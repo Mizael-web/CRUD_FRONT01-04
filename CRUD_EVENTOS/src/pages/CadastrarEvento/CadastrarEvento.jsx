@@ -1,7 +1,11 @@
+// src/pages/CadastrarEvento/CadastrarEvento.jsx
 import React, { useState } from "react";
-import style from "./CadastrarEvento.module.css"; // Importação do CSS Module
+import { useNavigate } from "react-router-dom";
+import style from "./CadastrarEvento.module.css";
 
-function CadastrarEvento() {
+function CadastrarEvento({ criarEvento }) {
+  const navigate = useNavigate();
+
   const [evento, setEvento] = useState({
     nome: "",
     descricao: "",
@@ -16,13 +20,14 @@ function CadastrarEvento() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar o código para salvar o evento
+    criarEvento(evento); // 🔥 Chamada correta aqui!
+    navigate("/eventos"); // Redireciona após cadastrar
   };
 
   return (
     <div className={style["cadastrar-evento"]}>
-      <h2 className={style.title}>Cadastrar Novo Evento</h2>
       <form onSubmit={handleSubmit} className={style.form}>
+        <h2 className={style.title}>Cadastrar Novo Evento</h2>
         <input
           type="text"
           name="nome"
@@ -30,6 +35,7 @@ function CadastrarEvento() {
           value={evento.nome}
           onChange={handleChange}
           className={style.input}
+          required
         />
         <textarea
           name="descricao"
@@ -37,13 +43,15 @@ function CadastrarEvento() {
           value={evento.descricao}
           onChange={handleChange}
           className={style.textarea}
-        ></textarea> {/* Certifique-se de fechar corretamente a tag */}
+          required
+        />
         <input
           type="date"
           name="data"
           value={evento.data}
           onChange={handleChange}
           className={style.input}
+          required
         />
         <input
           type="text"
@@ -52,6 +60,7 @@ function CadastrarEvento() {
           value={evento.local}
           onChange={handleChange}
           className={style.input}
+          required
         />
         <input
           type="time"
@@ -59,10 +68,13 @@ function CadastrarEvento() {
           value={evento.horario}
           onChange={handleChange}
           className={style.input}
+          required
         />
-        <button type="submit" className={style.button}>
-          Cadastrar
-        </button>
+        <div className={style.btnWrapper}>
+          <button type="submit" className={style.button}>
+            Cadastrar
+          </button>
+        </div>
       </form>
     </div>
   );

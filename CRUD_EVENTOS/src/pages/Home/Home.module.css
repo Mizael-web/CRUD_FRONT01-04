@@ -1,9 +1,42 @@
-/* src/pages/home/Home.css */
+/* src/pages/Home/Home.module.css */
 .home {
-  padding: 20px;
+  padding: 32px;
+  text-align: center;
 }
 
-.home h2 {
-  text-align: center;
-  color: #4CAF50;
+.titulo {
+  font-size: 28px;
+  color: #2e7d32;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.nome {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.mensagem {
+  color: #777;
+  font-size: 18px;
 }

@@ -1,16 +1,96 @@
-/* src/pages/eventos/Eventos.css */
-.eventos {
-  padding: 20px;
-}
-
-.eventos h2 {
+/* src/pages/Eventos/Eventos.module.css */
+.eventosContainer {
+  padding: 40px 20px;
   text-align: center;
-  color: #4CAF50;
+  background-color: #f9f9f9;
 }
 
-.eventos {
-  background-color: #4CAF50;
+.titulo {
+  font-size: 28px;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.acaoSuperior {
+  margin-bottom: 30px;
+}
+
+.botaoNovoEvento {
+  background-color: #2e7d32;
   color: white;
-  padding: 10px 0;
-  text-align: center; 
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.botaoNovoEvento:hover {
+  background-color: #256029;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cartao {
+  background-color: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.cartao h3 {
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.cartao p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.botaoEditar {
+  background-color: #0277bd;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.botaoEditar:hover {
+  background-color: #01579b;
+}
+
+.botaoExcluir {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.botaoExcluir:hover {
+  background-color: #b71c1c;
+}
+
+.semEventos {
+  font-size: 18px;
+  color: #888;
 }

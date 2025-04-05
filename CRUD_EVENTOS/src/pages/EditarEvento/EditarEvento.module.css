@@ -1,31 +1,67 @@
-/* src/pages/editarEvento/EditarEvento.module.css */
-.editarEvento {
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto;
+.editar-evento {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
 }
 
-.editarEvento h2 {
-  text-align: center;
-  color: #4CAF50;
-}
-
-.editarEvento form {
+.container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.inputField {
-  margin-bottom: 10px;
+.title {
+  font-size: 28px;
+  color: #4CAF50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input,
+.textarea {
   padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
-.submitButton {
+.textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 12px 24px;
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
 }

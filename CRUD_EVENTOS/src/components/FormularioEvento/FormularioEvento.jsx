@@ -11,11 +11,13 @@ function FormularioEvento({ eventoEditar, onSubmit }) {
     }
   }, [eventoEditar]);
 
+     // funcão de atualizar os campos do formulario conformeo usuario digita
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEvento((prev) => ({ ...prev, [name]: value }));
   };
 
+    // função para tratar o envio do formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(evento);
